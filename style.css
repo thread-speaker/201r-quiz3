@@ -1,0 +1,50 @@
+body {
+    background: #ccd9ff;
+}
+
+h2 {
+    text-align: center;
+}
+
+.button {
+    display: inline-block;
+    background: #002db3;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background: #0039e6;
+}
+
+.button:active {
+    background: #002080;
+}
+
+.container {
+    width: 500px;
+    margin: auto;
+    text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.input {
+    background: #008020;
+}
+
+.list {
+    background: #007a80;
+}
+
+.list-alignment {
+    display: inline-block;
+    width: 50%;
+    text-align: left; 
+}
+
+.input input[type=text] {
+    width: 100%;
+    margin-bottom: 5px;
+}

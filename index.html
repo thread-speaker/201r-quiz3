@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body ng-app="myApp" ng-controller="todoCtrl">
+
+<div class="application">
+    <h2>My Family History List</h2>
+
+    <div class="input container">
+        <input type="text" ng-model="person" size="50" placeholder="Person">
+        <input type="text" ng-model="father" size="50" placeholder="Father">
+        <input type="text" ng-model="mother" size="50" placeholder="Mother">
+        <div class="button" ng-click="todoAdd()">Add Person</div>
+    </div>
+
+    <br>
+
+    <div class="list container">
+        <div class="list-alignment">
+            <div ng-repeat="x in personList">
+                <label><input type="checkbox" ng-model="x.done"> {{x.person}}, {{x.father}}, {{x.mother}}</label>
+            </div>
+        </div>
+
+        <p><div class="button" ng-click="remove()">Remove marked</div></p>
+    </div>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('todoCtrl', function($scope) {
+    $scope.personList = [];
+
+    $scope.todoAdd = function() {
+        $scope.personList.push({person:$scope.person, father:$scope.father, mother:$scope.mother, done:false});
+        $scope.person = "";
+        $scope.father = "";
+        $scope.mother = "";
+    };
+
+    $scope.remove = function() {
+        var oldList = $scope.personList;
+        $scope.personList = [];
+        angular.forEach(oldList, function(x) {
+            if (!x.done) $scope.personList.push(x);
+        });
+    };
+});
+</script>
+
+</body>
+</html>
+
+
